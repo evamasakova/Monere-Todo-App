@@ -2,15 +2,12 @@ const express = require("express");
 const router = express.Router();
 const categoriesController = require("../controllers/categories");
 
-
 /**
- * Sends hello world
- * URL: http://localhost:4000/v1/categories/
- * Method: GET
+ * Endpoint routes for categories.
  */
-router.get("/all", categoriesController.getAllCategories);
-router.post("/create", categoriesController.createCategory);
-router.get("/:id", categoriesController.findCategoryById);
+router.get("/", categoriesController.getAllCategories);
+router.post("/", categoriesController.createCategory);
+router.get("/:id", categoriesController.getCategoryById);
 
 
 module.exports = router;

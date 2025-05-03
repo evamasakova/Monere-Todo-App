@@ -7,15 +7,12 @@ const logger = require("morgan");
 const mongoose = require("mongoose");
 mongoose
   .connect(
-    "mongodb+srv://admin:adminadmin@cluster0.qouone4.mongodb.net/mytestapp?retryWrites=true&w=majority&appName=Cluster0"
+    "insert mongodb connection string, password available in env.template"
   )
   .then(() => console.log("Database connected"))
   .catch((err) => console.log(err));
 
-const indexRouter = require("./routes/index");
-const usersRouter = require("./routes/users");
 const categoriesRouter = require("./routes/categories");
-
 const tasksRouter = require("./routes/tasks");
 
 const app = express();
@@ -31,8 +28,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 //ROUTERS
-app.use("/", indexRouter);
-app.use(`/v${process.env.APIV}/users`, usersRouter);
 app.use(`/v${process.env.APIV}/tasks`, tasksRouter);
 app.use(`/v${process.env.APIV}/categories`, categoriesRouter);
 
