@@ -21,6 +21,9 @@ exports.createTask = async (req, res, next) => {
       errors: validationFailed,
     });
   }
+  const { categoryID } = req.body;
+  console.log(categoryID);
+
   const isValidCategory = await CategoryUtil.validateIfCategoryExists(
     categoryID
   );
@@ -59,7 +62,7 @@ exports.checkOff = async (req, res, next) => {
   try {
     const data = await new TaskDAO().checkOff(req.params.id);
     if (data) {
-      return res.status(201).send({
+      return res.status(200).send({
         msg: "Task checked off",
         payload: data,
       });
@@ -99,12 +102,10 @@ exports.getAllActiveTasks = async (req, res, next) => {
 
 exports.getTasksByCategoryID = async (req, res, next) => {
   const { categoryID } = req.params;
-
   // Validate category
   const isValidCategory = await CategoryUtil.validateIfCategoryExists(
     categoryID
   );
-
   if (!isValidCategory) {
     return res.status(400).json({
       msg: "Invalid category ID",

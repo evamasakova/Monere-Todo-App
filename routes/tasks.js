@@ -5,12 +5,12 @@ const tasksController = require("../controllers/tasks");
 /**
  * Endpoint routes for tasks.
  */
-router.get("/", tasksController.getAllTasks);
+router.get("/list", tasksController.getAllTasks);
 router.get("/inactive", tasksController.getAllInactiveTasks);
 router.get("/active", tasksController.getAllActiveTasks);
-router.post("/", tasksController.createTask);
-router.get("/:id", tasksController.findTaskById);
-router.put("/:id", tasksController.checkOff);
+router.post("/create", tasksController.createTask);
+router.get("/list/:id", tasksController.findTaskById);
+router.put("/deactivate/:id", tasksController.checkOff);
 router.get("/category/:categoryID", tasksController.getTasksByCategoryID);
 
 module.exports = router;

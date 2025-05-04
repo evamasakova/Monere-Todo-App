@@ -24,15 +24,14 @@ export const validateCategoryInput = (data) => {
     );
   }
 
-  if (
-    typeof data.detail !== "string" ||
-    data.name.trim().length < 2 ||
-    data.name.trim().length > 64
-  ) {
-    errors.push(
-      'Field "detail", if inputted must be text and a maximum of 250 characters.'
-    );
+  if (data.detail !== undefined) {
+    if (typeof data.detail !== "string" || data.detail.length > 250) {
+      errors.push(
+        'Field "detail", if provided, must be a string with a maximum length of 250 characters.'
+      );
+    }
   }
+  
   const allowedColors = [
     "blue",
     "red",

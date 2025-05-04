@@ -5,8 +5,8 @@ const categoriesController = require("../controllers/categories");
 /**
  * Endpoint routes for categories.
  */
-router.get("/", categoriesController.getAllCategories);
-router.post("/", categoriesController.createCategory);
+router.get("/list", categoriesController.getAllCategories);
+router.post("/create", categoriesController.createCategory);
 router.get("/:id", categoriesController.getCategoryById);
 
 

@@ -7,7 +7,7 @@ const logger = require("morgan");
 const mongoose = require("mongoose");
 mongoose
   .connect(
-    "insert mongodb connection string, password available in env.template"
+    "insert mongodb connection string, password in env.template"
   )
   .then(() => console.log("Database connected"))
   .catch((err) => console.log(err));

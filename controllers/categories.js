@@ -22,7 +22,7 @@ exports.createCategory = async (req, res, next) => {
   }
   const data = await new CategoryDAO().createCategory(req.body);
   return res.status(201).send({
-    msg: "Task created!",
+    msg: "Category created!",
     payload: data,
   });
 };
@@ -34,7 +34,7 @@ exports.getCategoryById = async (req, res, next) => {
       return res.status(200).send({
         msg: "Category found!",
         payload: data,
-      });
+      })
     }
     res.status(404).send({ msg: "Category not found" });
   } catch (error) {
