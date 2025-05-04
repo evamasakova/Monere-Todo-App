@@ -9,5 +9,4 @@ router.get("/list", categoriesController.getAllCategories);
 router.post("/create", categoriesController.createCategory);
 router.get("/:id", categoriesController.getCategoryById);
 
-
 module.exports = router;
