@@ -21,6 +21,9 @@ exports.createTask = async (req, res, next) => {
       errors: validationFailed,
     });
   }
+  const { categoryID } = req.body;
+  console.log(categoryID);
+
   const isValidCategory = await CategoryUtil.validateIfCategoryExists(
     categoryID
   );
